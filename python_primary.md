@@ -74,6 +74,10 @@ python解释器在加载 .py 文件中的代码时，会对内容进行编码（
 
 
 
+Strings can be encoded to bytes,  and bytes can be decoded back to strings.
+
+
+
 ## 1.4 语言类型
 
 几个角度
@@ -182,6 +186,19 @@ my.py
 
 用 print(sys.path) 可以查看python环境变量列表。
 
+```pyt
+import sys,os
+res = os.system("dir") # 执行命令，不保留结果
+print(res) # 0
+res = os.popen("dir").read() # 保留结果
+print(res) # dir's result
+
+print(sys.path) # 打印环境变量
+print(sys.argv) # 打印参数值
+```
+
+
+
 ## 1.11 .pyc文件
 
 Python是一门先编译后解释的语言。
@@ -235,8 +252,23 @@ for i in range(10):
 	# continue
 	# break
 
+for i in range(0, 10, 3):
+    print(i)
+
 # 三元运算
 result = 值1 if 条件 else 值2
+
+if True: t1 = 100
+print(t1)
+
+# 循环中删除一个元素的坑
+a = ["11","22","33","44","55","66"]
+for i in a:
+    a.remove(i)
+    print(i)
+for i in a[:]:
+    a.remove(i)
+    print(i)
 ```
 
 
